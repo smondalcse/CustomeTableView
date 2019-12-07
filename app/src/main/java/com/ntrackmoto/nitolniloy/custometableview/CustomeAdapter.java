@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 /**
@@ -59,6 +61,7 @@ public class CustomeAdapter extends BaseAdapter {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.lv_item, null, true);
 
+            holder.txtSL = (TextView) convertView.findViewById(R.id.txtSL);
             holder.editText = (EditText) convertView.findViewById(R.id.editid);
 
             convertView.setTag(holder);
@@ -68,6 +71,7 @@ public class CustomeAdapter extends BaseAdapter {
         }
 
         holder.editText.setText(editModelArrayList.get(position).getEditTextValue());
+        holder.txtSL.setText(String.valueOf(position));
 
         holder.editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -78,7 +82,7 @@ public class CustomeAdapter extends BaseAdapter {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 editModelArrayList.get(position).setEditTextValue(holder.editText.getText().toString());
-
+                editModelArrayList.get(position).setSlValue(holder.txtSL.getText().toString());
             }
 
             @Override
@@ -92,6 +96,7 @@ public class CustomeAdapter extends BaseAdapter {
 
     private class ViewHolder {
 
+        protected TextView txtSL ;
         protected EditText editText;
 
     }

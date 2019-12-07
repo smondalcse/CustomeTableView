@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 public class NextActivity extends AppCompatActivity {
 
-    private TextView tv;
+    private TextView tv, tsl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,10 +14,12 @@ public class NextActivity extends AppCompatActivity {
         setContentView(R.layout.activity_next);
 
         tv = (TextView) findViewById(R.id.tv);
+        tsl = (TextView) findViewById(R.id.tsl);
 
         for (int i = 0; i < CustomeAdapter.editModelArrayList.size(); i++){
 
             tv.setText(tv.getText() + " " + CustomeAdapter.editModelArrayList.get(i).getEditTextValue() +System.getProperty("line.separator"));
+            tsl.setText(tsl.getText() + " " + CustomeAdapter.editModelArrayList.get(i).getSlValue() +System.getProperty("line.separator"));
 
         }
 

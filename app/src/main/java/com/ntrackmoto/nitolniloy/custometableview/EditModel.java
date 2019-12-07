@@ -2,7 +2,15 @@ package com.ntrackmoto.nitolniloy.custometableview;
 
 public class EditModel {
 
-    private String editTextValue;
+    private String editTextValue, slValue;
+
+    public String getSlValue() {
+        return slValue;
+    }
+
+    public void setSlValue(String slValue) {
+        this.slValue = slValue;
+    }
 
     public String getEditTextValue() {
         return editTextValue;
